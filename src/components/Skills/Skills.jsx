@@ -47,7 +47,7 @@ const Skills = () => (
                 >
                   <img
                     src={skill.logo}
-                    alt={`${skill.name} logo`}
+                    // alt={`${skill.name} logo`}
                     className="w-6 h-6 sm:w-8 sm:h-8"
                   />
                   <span className="text-xs sm:text-sm text-gray-300">
@@ -59,6 +59,13 @@ const Skills = () => (
           </Tilt>
         </div>
       ))}
+
+      {/* REMOVE THIS ENTIRE "Others" SECTION BLOCK */}
+      {/* 
+      <div className="bg-gray-900 ...Others card...">
+        ...placeholder boxes...
+      </div>
+      */}
     </div>
   </section>
 );

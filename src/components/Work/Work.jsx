@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { projects } from "../../constants";
 
 const Work = () => {
@@ -10,6 +10,22 @@ const Work = () => {
 
   const handleCloseModal = () => {
     setSelectedProject(null);
+  };
+
+  // Close modal when Escape is pressed
+  useEffect(() => {
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") handleCloseModal();
+    };
+    if (selectedProject) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedProject]);
+
+  // Close when clicking the overlay (outside the modal)
+  const handleOverlayClick = (e) => {
+    if (e.target === e.currentTarget) {
+      handleCloseModal();
+    }
   };
 
   return (
@@ -66,12 +82,16 @@ const Work = () => {
 
       {/* Modal Container */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="bg-gray-900 rounded-xl shadow-2xl lg:w-full w-[90%] max-w-3xl overflow-hidden relative">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4"
+          onClick={handleOverlayClick} // overlay click closes modal
+        >
+          <div className="bg-gray-900 rounded-xl shadow-2xl w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] max-w-xl max-h-[80vh] overflow-auto relative">
             <div className="flex justify-end p-4">
               <button
                 onClick={handleCloseModal}
                 className="text-white text-3xl font-bold hover:text-purple-500"
+                aria-label="Close modal"
               >
                 &times;
               </button>
@@ -82,7 +102,7 @@ const Work = () => {
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl"
+                  className="lg:w-full w-[95%] object-contain rounded-xl shadow-2xl max-h-[36vh]"
                 />
               </div>
               <div className="lg:p-8 p-6">
@@ -111,14 +131,27 @@ const Work = () => {
                   >
                     View Code
                   </a>
-                  <a
-                    href={selectedProject.webapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
-                  >
-                    View Live
-                  </a>
+
+                  {selectedProject.webapp ? (
+                    <a
+                      href={selectedProject.webapp}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-1/2 bg-purple-600 hover:bg-purple-800 text-white lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center"
+                    >
+                      View Live
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      aria-disabled="true"
+                      className="w-1/2 bg-gray-700 text-gray-300 lg:px-6 lg:py-2 px-2 py-1 rounded-xl lg:text-xl text-sm font-semibold text-center cursor-not-allowed"
+                      title="Not yet published"
+                    >
+                      Not yet published
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

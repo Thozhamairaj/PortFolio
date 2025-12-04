@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const Footer = () => {
   // Smooth scroll function
@@ -14,42 +14,30 @@ const Footer = () => {
     <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
       <div className="container mx-auto text-center">
         {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-purple-500">Tarun Kaushik</h2>
+        <h2 className="text-xl font-semibold text-purple-500">I'm your coding partner - Thozhamairaj</h2>
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScroll(item.id)}
-              className="hover:text-purple-500 text-sm sm:text-base my-1"
-            >
-              {item.name}
-            </button>
-          ))}
-        </nav>
-
-        {/* Social Media Icons - Responsive */}
+        {/* Social Media / Contact Icons - Responsive */}
         <div className="flex flex-wrap justify-center space-x-4 mt-6">
           {[
-            { icon: <FaFacebook />, link: "https://www.facebook.com/tarun.kaushik.3511041/" },
-            { icon: <FaTwitter />, link: "https://twitter.com/CodingMaster6?s=09" },
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/tarun-kaushik-553b441a4" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/coding_.master/" },
-            { icon: <FaYoutube />, link: "https://www.youtube.com/codingmasteryt" },
-            
+            { icon: <FaInstagram />, link: "https://www.instagram.com/thozhamai._.1434/", label: "Instagram" },
+            { icon: <FaPhone />, link: "tel:+919080858198", label: "Phone" },
+            { 
+              icon: <FaEnvelope />, 
+              link: "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=thozhamairaj@gmail.com", 
+              label: "Email"
+            },
+            { 
+              icon: <FaMapMarkerAlt />, 
+              link: "https://www.google.com/maps/place/MAHALIPPATTY+TEMPLE/@10.7691881,78.3718622,856m/data=!3m1!1e3!4m6!3m5!1s0x3baa4145f4f614dd:0x28976ef2fe4ed7c0!8m2!3d10.7686845!4d78.3749083!16s%2Fg%2F11s5nknq6x?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
+              label: "Location"
+            },
           ].map((item, index) => (
             <a
               key={index}
               href={item.link}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={item.label}
               className="text-xl hover:text-purple-500 transition-transform transform hover:scale-110"
             >
               {item.icon}
@@ -59,7 +47,7 @@ const Footer = () => {
 
         {/* Copyright Text */}
         <p className="text-sm text-gray-400 mt-6">
-          © 2025 Tarun Kaushik. All rights reserved.
+          © 2025 Thozhamairaj . All rights reserved.
         </p>
       </div>
     </footer>

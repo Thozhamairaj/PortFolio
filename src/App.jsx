@@ -8,6 +8,8 @@ import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import BlurBlob from './components/BlurBlob';
+import CursorTrail from './components/CursorTrail/CursorTrail';
+import Certificates from "./components/Certificate/Certificates";
 
 const App = () => {
   return (
@@ -19,8 +21,10 @@ const App = () => {
       
       <div className="relative pt-20">
         <Navbar />
+        <CursorTrail colors={['#ff9a8b','#ff6a88','#8245ec','#a855f7','#ffd166']} />
         <About />
         <Skills />
+        <Certificates />
         <Experience />
         <Work />
         <Education />
