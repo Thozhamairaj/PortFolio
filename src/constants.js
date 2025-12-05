@@ -31,7 +31,7 @@ import GenAI from './assets/company_logo/genai.png';
 
 // Education Section Logo's
 import GovtLogo from './assets/education_logo/govt.jpeg';
-import KonguLogo from './assets/education_logo/Kongu.png';
+import konguLogo from './assets/education_logo/kongu.png';
 
 // Project Section Logo's
 import College from './assets/work_logo/college2.png';
