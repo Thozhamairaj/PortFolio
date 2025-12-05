@@ -5,7 +5,7 @@ import myPhoto from "./myPhoto.jpg";
 import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import axios from 'axios';
 
-const API_URL = 'https://portfolio-pkl4.onrender.com/api';
+const API_URL = 'https://portfolio-pkl4.onrender.com/';
 
 const About = () => {
   const [liked, setLiked] = useState(false);
