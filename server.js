@@ -20,19 +20,25 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 
 // MongoDB Connection
 const connectDB = async () => {
+  const mongoUri = process.env.MONGODB_URI;
+  
+  if (!mongoUri) {
+    console.error('❌ MONGODB_URI not set');
+    process.exit(1);
+  }
+
   try {
-    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio', {
+    await mongoose.connect(mongoUri, {
       serverSelectionTimeoutMS: 30000,
       socketTimeoutMS: 45000,
     });
     console.log('✅ MongoDB Connected Successfully');
   } catch (error) {
-    console.error('❌ MongoDB Connection Error:', error);
+    console.error('❌ MongoDB Connection Error:', error.message);
     process.exit(1);
   }
 };
@@ -65,12 +71,19 @@ mongoose.connection.once('open', () => {
   initializeData();
 });
 
+// Test route
+app.get('/', (req, res) => {
+  res.json({ message: 'Portfolio API is running ✅' });
+});
+
 // GET counts
 app.get('/api/likes', async (req, res) => {
   try {
+    console.log('📥 GET /api/likes called');
     const data = await Like.findOne();
     res.json(data || { likes: 0, dislikes: 0 });
   } catch (error) {
+    console.error('Error fetching likes:', error);
     res.status(500).json({ error: 'Error fetching likes' });
   }
 });
@@ -78,6 +91,7 @@ app.get('/api/likes', async (req, res) => {
 // POST like
 app.post('/api/like', async (req, res) => {
   try {
+    console.log('📥 POST /api/like called');
     const data = await Like.findOne();
     if (!data) {
       const newData = await Like.create({ likes: 1, dislikes: 0 });
@@ -87,6 +101,7 @@ app.post('/api/like', async (req, res) => {
     await data.save();
     res.json(data);
   } catch (error) {
+    console.error('Error updating like:', error);
     res.status(500).json({ error: 'Error updating like' });
   }
 });
@@ -94,6 +109,7 @@ app.post('/api/like', async (req, res) => {
 // POST unlike
 app.post('/api/unlike', async (req, res) => {
   try {
+    console.log('📥 POST /api/unlike called');
     const data = await Like.findOne();
     if (data) {
       data.likes = Math.max(0, data.likes - 1);
@@ -101,6 +117,7 @@ app.post('/api/unlike', async (req, res) => {
     }
     res.json(data || { likes: 0, dislikes: 0 });
   } catch (error) {
+    console.error('Error updating like:', error);
     res.status(500).json({ error: 'Error updating like' });
   }
 });
@@ -108,6 +125,7 @@ app.post('/api/unlike', async (req, res) => {
 // POST dislike
 app.post('/api/dislike', async (req, res) => {
   try {
+    console.log('📥 POST /api/dislike called');
     const data = await Like.findOne();
     if (!data) {
       const newData = await Like.create({ likes: 0, dislikes: 1 });
@@ -117,6 +135,7 @@ app.post('/api/dislike', async (req, res) => {
     await data.save();
     res.json(data);
   } catch (error) {
+    console.error('Error updating dislike:', error);
     res.status(500).json({ error: 'Error updating dislike' });
   }
 });
@@ -124,6 +143,7 @@ app.post('/api/dislike', async (req, res) => {
 // POST undislike
 app.post('/api/undislike', async (req, res) => {
   try {
+    console.log('📥 POST /api/undislike called');
     const data = await Like.findOne();
     if (data) {
       data.dislikes = Math.max(0, data.dislikes - 1);
@@ -131,6 +151,7 @@ app.post('/api/undislike', async (req, res) => {
     }
     res.json(data || { likes: 0, dislikes: 0 });
   } catch (error) {
+    console.error('Error updating dislike:', error);
     res.status(500).json({ error: 'Error updating dislike' });
   }
 });
@@ -144,4 +165,15 @@ app.get('/health', (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📍 API Base URL: https://portfolio-pkl4.onrender.com`);
+  console.log(`✅ Routes available:`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/health`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/api/likes`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/api/like`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/api/unlike`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/api/dislike`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/api/undislike`);
+});
