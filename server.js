@@ -6,11 +6,40 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Configure CORS properly
+app.use(cors({
+  origin: [
+    'http://localhost:5173', // Local development
+    'http://localhost:3000',
+    'https://trfolio.netlify.app', // Your Netlify URL
+    'https://your-portfolio.netlify.app', // Update with your actual Netlify URL
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+}));
+
 app.use(express.json());
 
-// MongoDB Connection - remove deprecated options
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio');
+// Add OPTIONS handler for preflight requests
+app.options('*', cors());
+
+// MongoDB Connection with better error handling
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio', {
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+    });
+    console.log('✅ MongoDB Connected Successfully');
+  } catch (error) {
+    console.error('❌ MongoDB Connection Error:', error);
+    process.exit(1);
+  }
+};
+
+connectDB();
 
 // Schema
 const likeSchema = new mongoose.Schema({
