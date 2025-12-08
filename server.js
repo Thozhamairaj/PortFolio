@@ -13,7 +13,6 @@ const corsOptions = {
     'http://localhost:5173',
     'http://localhost:3000',
     'https://trfolio.netlify.app',
-    'https://portfolio-pkl4.onrender.com',
   ],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -78,9 +77,9 @@ app.get('/', (req, res) => {
 });
 
 // GET counts
-app.get('/api/likes', async (req, res) => {
+app.get('/likes', async (req, res) => {
   try {
-    console.log('📥 GET /api/likes called');
+    console.log('📥 GET /likes called');
     const data = await Like.findOne();
     res.json(data || { likes: 0, dislikes: 0 });
   } catch (error) {
@@ -90,9 +89,9 @@ app.get('/api/likes', async (req, res) => {
 });
 
 // POST like
-app.post('/api/like', async (req, res) => {
+app.post('/like', async (req, res) => {
   try {
-    console.log('📥 POST /api/like called');
+    console.log('📥 POST /like called');
     const data = await Like.findOne();
     if (!data) {
       const newData = await Like.create({ likes: 1, dislikes: 0 });
@@ -108,9 +107,9 @@ app.post('/api/like', async (req, res) => {
 });
 
 // POST unlike
-app.post('/api/unlike', async (req, res) => {
+app.post('/unlike', async (req, res) => {
   try {
-    console.log('📥 POST /api/unlike called');
+    console.log('📥 POST /unlike called');
     const data = await Like.findOne();
     if (data) {
       data.likes = Math.max(0, data.likes - 1);
@@ -124,9 +123,9 @@ app.post('/api/unlike', async (req, res) => {
 });
 
 // POST dislike
-app.post('/api/dislike', async (req, res) => {
+app.post('/dislike', async (req, res) => {
   try {
-    console.log('📥 POST /api/dislike called');
+    console.log('📥 POST /dislike called');
     const data = await Like.findOne();
     if (!data) {
       const newData = await Like.create({ likes: 0, dislikes: 1 });
@@ -142,9 +141,9 @@ app.post('/api/dislike', async (req, res) => {
 });
 
 // POST undislike
-app.post('/api/undislike', async (req, res) => {
+app.post('/undislike', async (req, res) => {
   try {
-    console.log('📥 POST /api/undislike called');
+    console.log('📥 POST /undislike called');
     const data = await Like.findOne();
     if (data) {
       data.dislikes = Math.max(0, data.dislikes - 1);
@@ -170,9 +169,11 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📍 API Base URL: https://portfolio-pkl4.onrender.com`);
   console.log(`✅ Routes available:`);
-  console.log(`   GET  https://portfolio-pkl4.onrender.com/api/likes`);
-  console.log(`   POST https://portfolio-pkl4.onrender.com/api/like`);
-  console.log(`   POST https://portfolio-pkl4.onrender.com/api/unlike`);
-  console.log(`   POST https://portfolio-pkl4.onrender.com/api/dislike`);
-  console.log(`   POST https://portfolio-pkl4.onrender.com/api/undislike`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/health`);
+  console.log(`   GET  https://portfolio-pkl4.onrender.com/likes`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/like`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/unlike`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/dislike`);
+  console.log(`   POST https://portfolio-pkl4.onrender.com/undislike`);
 });
