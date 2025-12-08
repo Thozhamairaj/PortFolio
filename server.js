@@ -84,7 +84,7 @@ app.get('/likes', async (_req, res) => {
   }
 });
 
-app.post('/like', requireUserKey, async (req, res) => {
+app.post('/likes', requireUserKey, async (req, res) => {
   try {
     const stats = await ensureStats();
     const existing = await Vote.findOne({ userKey: req.userKey });
