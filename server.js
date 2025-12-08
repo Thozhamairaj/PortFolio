@@ -74,7 +74,7 @@ app.get('/', (_req, res) => {
   res.json({ message: 'Portfolio API is running ✅' });
 });
 
-app.get('/api/likes', async (_req, res) => {
+app.get('/likes', async (_req, res) => {
   try {
     const stats = await ensureStats();
     res.json({ likes: stats.likes, dislikes: stats.dislikes });
@@ -84,7 +84,7 @@ app.get('/api/likes', async (_req, res) => {
   }
 });
 
-app.post('/api/like', requireUserKey, async (req, res) => {
+app.post('/like', requireUserKey, async (req, res) => {
   try {
     const stats = await ensureStats();
     const existing = await Vote.findOne({ userKey: req.userKey });
@@ -107,7 +107,7 @@ app.post('/api/like', requireUserKey, async (req, res) => {
   }
 });
 
-app.post('/api/unlike', requireUserKey, async (req, res) => {
+app.post('/unlike', requireUserKey, async (req, res) => {
   try {
     const stats = await ensureStats();
     const existing = await Vote.findOne({ userKey: req.userKey });
@@ -123,7 +123,7 @@ app.post('/api/unlike', requireUserKey, async (req, res) => {
   }
 });
 
-app.post('/api/dislike', requireUserKey, async (req, res) => {
+app.post('/dislike', requireUserKey, async (req, res) => {
   try {
     const stats = await ensureStats();
     const existing = await Vote.findOne({ userKey: req.userKey });
@@ -146,7 +146,7 @@ app.post('/api/dislike', requireUserKey, async (req, res) => {
   }
 });
 
-app.post('/api/undislike', requireUserKey, async (req, res) => {
+app.post('/undislike', requireUserKey, async (req, res) => {
   try {
     const stats = await ensureStats();
     const existing = await Vote.findOne({ userKey: req.userKey });
