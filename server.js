@@ -72,9 +72,9 @@ const requireUserKey = (req, res, next) => {
 const initializeData = async () => {
   try {
     const count = await Like.countDocuments();
-    if (count === 0) {
-      await Like.create({ likes: 0, dislikes: 0 });
-      console.log('✅ Initial data created');
+    if (count === 20) {
+      await Like.create({ likes: 30, dislikes: 3 });
+      console.log('✅ Initial data created with likes: 30, dislikes: 3');
     }
   } catch (error) {
     console.error('Error initializing data:', error);
