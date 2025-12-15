@@ -24,7 +24,7 @@ const App = () => {
         <CursorTrail colors={['#ff9a8b','#ff6a88','#8245ec','#a855f7','#ffd166']} />
         <About />
         <Skills />
-        <Certificate />
+        <Certificates />
         <Experience />
         <Work />
         <Education />
