@@ -176,17 +176,7 @@ const About = () => {
               DOWNLOAD RESUME
             </button>
 
-            <a
-              href="https://electrical-shop-three.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-white py-3 px-6 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 border border-gray-600"
-              style={{
-                background: 'transparent',
-              }}
-            >
-              VIEW WEBAPP
-            </a>
+            {/* removed VIEW WEBAPP link per request */}
 
             {/* Like Button */}
             <button
