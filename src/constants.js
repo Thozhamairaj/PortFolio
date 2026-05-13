@@ -28,10 +28,11 @@ import Teamwork from './assets/tech_logo/team.png';
 // Experience Section Logo's
 import SkillCraft from './assets/company_logo/skill.jpeg';
 import GenAI from './assets/company_logo/genai.png';
+import Zaalima from './assets/company_logo/zaalima.png';
 
 // Education Section Logo's
 import GovtLogo from './assets/education_logo/govt.jpeg';
-import konguLogo from './assets/education_logo/kongu.png';
+import KonguLogo from './assets/education_logo/kongu.png';
 
 // Project Section Logo's
 import College from './assets/work_logo/college2.png';
@@ -40,6 +41,7 @@ import weather from './assets/work_logo/weather1.png';
 import Donor from './assets/work_logo/donor.jpeg';
 import Memory from './assets/work_logo/memory.png';
 import KMRL from './assets/work_logo/train.png';
+import Ecommerce from './assets/work_logo/Ecommerce.png';
 
 
 // Certificate Section Logo's
@@ -50,6 +52,7 @@ import Responsive from './assets/certificate/resp.png';
 import Network from './assets/certificate/demi.png';
 import Azure from './assets/certificate/azure.jpg';
 import Apex from './assets/certificate/apex.jpg';
+import Java from './assets/certificate/SE17.png';
 
 export const SkillsInfo = [
   {
@@ -83,11 +86,11 @@ export const SkillsInfo = [
     title: 'AI/ML',
     skills: [
       { name: 'Python', logo: pythonLogo },
-      {name: 'Numpy', logo: Numpy},
-      {name: 'Pandas', logo: Pandas},
-      {name: 'TensorFlow', logo: TensorFlow},
-      {name: 'CV', logo: CV2},
-      {name: 'Keras', logo: Keras}
+      { name: 'Numpy', logo: Numpy },
+      { name: 'Pandas', logo: Pandas },
+      { name: 'TensorFlow', logo: TensorFlow },
+      { name: 'CV', logo: CV2 },
+      { name: 'Keras', logo: Keras }
     ],
   },
   {
@@ -111,165 +114,195 @@ export const SkillsInfo = [
   }
 ];
 
-  export const experiences = [
-    {
-      id: 0,
-      img: SkillCraft,
-      role: "Cybersecurity Internship",
-      company: "SkillCraft Technology",
-      date: "November 2024 - December 2024",
-      desc: "I completed a Cybersecurity internship at SkillCraft Technology, where I gained hands-on experience in various aspects of cybersecurity. During this internship, I worked on real-world projects that involved identifying vulnerabilities, implementing security measures, and understanding the latest trends in cybersecurity.",
-      skills: [
-        "Encryption Techniques",
-        "Decryption Methods",
-        "Password Security",
-        "Key Logging techniques",
-        "Network Security Basics"
-      ],
-    },
-    {
-      id: 1,
-      img: GenAI,
-      role: "AI/ML/Generative AI Internship",
-      company: "Generative AI Consortium",
-      date: "November 2024 - April 2025 (6 weeks)",
-      desc: "I undertook an AI/ML/Generative AI internship at the Generative AI Consortium, where I worked on projects involving artificial intelligence and machine learning. This internship provided me with practical experience in developing AI models, understanding generative algorithms, and applying machine learning techniques to solve complex problems.",
-      skills: [
-        "ML Algorithms",
-        "Generative AI Models",
-        "Data Preprocessing",
-        "Model Training and Evaluation",
-        "Python Programming"
-      ]
-        
-    }
-    
-  ];
-  
-  export const education = [
-    {
-      id: 0,
-      img: KonguLogo,
-      school: "Kongu Engineering College, Erode",
-      date: "2023 - 2027",
-      grade: "8.48 CGPA",
-      desc: "I am currently pursuing my Bachelor's degree in Artificial Intelligence and Machine Learning (B.Tech - AIML) at Kongu Engineering College. My coursework includes subjects such as Data Structures and Algorithms, Database Management Systems, Web Development, Machine Learning, and Artificial Intelligence. I have been actively involved in various projects and hackathons that have allowed me to apply theoretical knowledge to practical scenarios, enhancing my problem-solving skills and technical expertise.",
-      degree: "BTech - AIML (Artificial Intelligence & Machine Learning)",
-    },
-    {
-      id: 1,
-      img: GovtLogo,
-      school: "Government Higher Secondary School, Thogaimalai",
-      date: "2021 - 2023",
-      grade: "88.8%",
-      desc: "I completed my class 11 & 12 education from Government Higher Secondary School, Thogaimalai, under the Tamil Nadu State Board, where I studied Physics, Chemistry, Mathematics, and Biology (PCMB).",
-      degree: "BioMaths",
-    },
-    {
-      id: 2,
-      img: GovtLogo,
-      school: "Government High School, Udaiyapatty",
-      date: "2019 - 2021",
-      grade: "93%",
-      desc: "I completed my class 9 & 10 education from Government High School, Udaiyapatty, under the Tamil Nadu State Board.",
-    }
-  ];
-  
-  export const projects = [
-    {
-      id: 0,
-      title: " Recommends Personalized College Options for Counselling Student",
-      description:
-        "A React.js-based web application that helps students find suitable college options based on their preferences and academic profiles. The app allows users to input their interests, location, budget, and academic scores to receive personalized college recommendations. It features an intuitive user interface, real-time search capabilities, and detailed college profiles to assist students in making informed decisions about their higher education.",
-      image: College,
-      tags: ["React", "CSS", "Python", "ML", "Node.js", "MongoDB"],
-      github: "https://github.com/SUBITCHAKALAKSHMI-A/CounselHive",
-      // webapp: "https://githubprofiledetective.netlify.app/",
-    },
-    {
-      id: 1,
-      title: "Financial Aid and Development Support System",
-      description:
-        "A comprehensive financial aid web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). This platform enables users to apply for financial assistance, track their application status, and access various support services. The application features a user-friendly interface, secure authentication, and an admin panel for managing applications and disbursing funds efficiently.",
-      image: Finance,
-      tags: ["React", "JavaScript", "CSS", "Node.js", "Python", "MongoDB"],
-      github: "https://github.com/premkumark2005/Finance_Assistant",
-      webapp: "https://welth-ruddy.vercel.app/",
-    },
-    {
-      id: 2,
-      title: "Weather prediction App",
-      description:
-        "A dynamic weather application built with React.js that provides real-time weather updates for any location worldwide. Users can search for cities to get current weather conditions, forecasts, and other meteorological data presented in an intuitive and visually appealing interface.",
-      image: weather,
-      tags: ["React", "CSS", "Weather API", "Node.js", "MongoDB"],
-      github: "https://github.com/Thozhamairaj/Weather_Part2",
-      webapp: "https://ourprediction.netlify.app/",
-    },
-    {
-      id: 3,
-      title: "Blood Donor Connect",
-      description:
-        "Blood Donor Connect is a web application designed to facilitate the connection between blood donors and recipients in need. Built using HTML, JavaScript, Node.js, MongoDB, and CSS, the platform allows users to register as donors, search for available blood types, and request donations. The application features a user-friendly interface, secure data management, and real-time notifications to ensure timely communication between donors and recipients.",
-      image: Donor,
-      tags: ["HTML", "JavaScript", "Node.js", "MongoDB", "CSS"],
-      github: "https://github.com/premkumark2005/blood_donor",
-      // webapp: "https://blooddonorconnect.netlify.app/",
-    },
-    {
-      id: 4,
-      title: "Digital Memory Vault",
-      description:
-        "The Digital Memory Vault is a secure web application that allows users to store and manage their personal memories, such as photos, videos, and notes. Built using HTML, JavaScript, Node.js, MongoDB, and CSS, the platform provides a user-friendly interface for uploading and organizing memories. It features robust security measures to ensure that users' data remains private and protected.",
-      image: Memory,
-      tags: ["React", "Python", "Node.js", "FastAPI","PostgreSQL", "CSS"],
-      github: "https://github.com/Pramodk2006/notee",
-      // webapp: "https://digitalmemoryvault.netlify.app/",
-    },
-    {
-      id: 5,
-      title: "AI-Driven Train Induction Planning & Scheduling for Kochi Metro Rail Limited (KMRL)",
-      description:
-        "An AI-powered system designed to optimize train induction planning and scheduling for Kochi Metro Rail Limited (KMRL). The system utilizes machine learning algorithms to analyze passenger flow, peak hours, and operational constraints to create efficient train schedules. This project aims to enhance the overall efficiency of metro operations, reduce wait times, and improve passenger satisfaction through intelligent scheduling solutions.",
-      image: KMRL,
-      tags: ["Python", "Machine Learning", "Data Analysis","AI"],
-      github: "https://github.com/Pramodk2006/KMRL",
-      // webapp: "https://kmrl-ai-scheduler.netlify.app/",
-    }
-     ];
-     
-     export const certificates = [
-      {
-        id: 0,
-        title: "MERN Stack Development",
-        image: MERN, // add path if you have an image, e.g. import cert1 from './assets/certs/cert1.png'
-      },
-      {
-        id: 1,
-        title: "Oracle Apex Cloud Developer",
-        image: Apex, // add path if you have an image, e.g. import cert2 from './assets/certs/cert2.png'
-      },
-      {
-        id: 2,
-        title: "Azure AI Engineer Associate",
-        image: Azure, // add path if you have an image, e.g. import cert3 from './assets/certs/cert3.png'
-      },{
-        id: 3,
-        title: "Demistifying Network (DMN)",
-        image: Network, // add path if you have an image, e.g. import cert4 from './assets/certs/cert4.png'
-      },{
-        id: 4,
-        title: "AI Foundations Associate",
-        image: Oracle,
-         // add path if you have an image, e.g. import cert5 from './assets/certs/cert5.png'
-      },{
-        id: 5,
-        title: "Responsible & Safe AI Systems",
-        image: Responsive,
-         // add path if you have an image, e.g. import cert6 from './assets/certs/cert6.png'
-      },{
-        id: 6,
-        title: "Mobile Application Development",
-        image: Mobile, // add path if you have an image, e.g. import cert7 from './assets/certs/cert7.png'
-      }
-    ];
+export const experiences = [
+  {
+    id: 0,
+    img: SkillCraft,
+    role: "Cybersecurity Internship",
+    company: "SkillCraft Technology",
+    date: "November 2024 - December 2024",
+    desc: "I completed a Cybersecurity internship at SkillCraft Technology, where I gained hands-on experience in various aspects of cybersecurity. During this internship, I worked on real-world projects that involved identifying vulnerabilities, implementing security measures, and understanding the latest trends in cybersecurity.",
+    skills: [
+      "Encryption Techniques",
+      "Decryption Methods",
+      "Password Security",
+      "Key Logging techniques",
+      "Network Security Basics"
+    ],
+  },
+  {
+    id: 1,
+    img: GenAI,
+    role: "AI/ML/Generative AI Internship",
+    company: "Generative AI Consortium",
+    date: "November 2024 - April 2025 (6 weeks)",
+    desc: "I undertook an AI/ML/Generative AI internship at the Generative AI Consortium, where I worked on projects involving artificial intelligence and machine learning. This internship provided me with practical experience in developing AI models, understanding generative algorithms, and applying machine learning techniques to solve complex problems.",
+    skills: [
+      "ML Algorithms",
+      "Generative AI Models",
+      "Data Preprocessing",
+      "Model Training and Evaluation",
+      "Python Programming"
+    ]
+
+  },
+  {
+    id: 2,
+    img: Zaalima,
+    role: "Web Development Internship",
+    company: "Zaalima Development",
+    date: "February 2026 - April 2026",
+    desc: "I completed a Web Development internship at Zaalima Development, where I worked on developing responsive and user-friendly web applications. The internship helped me gain practical experience in frontend and backend development, API integration, database connectivity, and building scalable web solutions.",
+    skills: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React.js",
+      "Node.js",
+      "Database Integration"
+    ]
+  }
+
+];
+
+export const education = [
+  {
+    id: 0,
+    img: KonguLogo,
+    school: "Kongu Engineering College, Erode",
+    date: "2023 - 2027",
+    grade: "8.48 CGPA",
+    desc: "I am currently pursuing my Bachelor's degree in Artificial Intelligence and Machine Learning (B.Tech - AIML) at Kongu Engineering College. My coursework includes subjects such as Data Structures and Algorithms, Database Management Systems, Web Development, Machine Learning, and Artificial Intelligence. I have been actively involved in various projects and hackathons that have allowed me to apply theoretical knowledge to practical scenarios, enhancing my problem-solving skills and technical expertise.",
+    degree: "BTech - AIML (Artificial Intelligence & Machine Learning)",
+  },
+  {
+    id: 1,
+    img: GovtLogo,
+    school: "Government Higher Secondary School, Thogaimalai",
+    date: "2021 - 2023",
+    grade: "88.8%",
+    desc: "I completed my class 11 & 12 education from Government Higher Secondary School, Thogaimalai, under the Tamil Nadu State Board, where I studied Physics, Chemistry, Mathematics, and Biology (PCMB).",
+    degree: "BioMaths",
+  },
+  {
+    id: 2,
+    img: GovtLogo,
+    school: "Government High School, Udaiyapatty",
+    date: "2019 - 2021",
+    grade: "93%",
+    desc: "I completed my class 9 & 10 education from Government High School, Udaiyapatty, under the Tamil Nadu State Board.",
+  }
+];
+
+export const projects = [
+  {
+  id: 0,
+  title: "Smart Electrical & Hardware E-Commerce Platform",
+  description:
+    "A full-stack e-commerce web application designed for browsing and purchasing electrical and hardware products efficiently. The platform provides organized product categories, real-time inventory management, secure user authentication, cart and order management, and a responsive user interface to enhance customer experience. It supports seamless product search, filtering, and scalable backend operations for efficient online shopping.",
+  image: Ecommerce,
+  tags: ["React", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+  github: "https://github.com/Thozhamairaj/Electrical_shop",
+  // webapp: "https://yourprojectlink.com/",
+},{
+    id: 1,
+    title: " Recommends Personalized College Options for Counselling Student",
+    description:
+      "A React.js-based web application that helps students find suitable college options based on their preferences and academic profiles. The app allows users to input their interests, location, budget, and academic scores to receive personalized college recommendations. It features an intuitive user interface, real-time search capabilities, and detailed college profiles to assist students in making informed decisions about their higher education.",
+    image: College,
+    tags: ["React", "CSS", "Python", "ML", "Node.js", "MongoDB"],
+    github: "https://github.com/SUBITCHAKALAKSHMI-A/CounselHive",
+    // webapp: "https://githubprofiledetective.netlify.app/",
+  },
+  {
+    id: 2,
+    title: "Financial Aid and Development Support System",
+    description:
+      "A comprehensive financial aid web application developed using the MERN stack (MongoDB, Express.js, React.js, Node.js). This platform enables users to apply for financial assistance, track their application status, and access various support services. The application features a user-friendly interface, secure authentication, and an admin panel for managing applications and disbursing funds efficiently.",
+    image: Finance,
+    tags: ["React", "JavaScript", "CSS", "Node.js", "Python", "MongoDB"],
+    github: "https://github.com/premkumark2005/Finance_Assistant",
+    webapp: "https://welth-ruddy.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "Weather prediction App",
+    description:
+      "A dynamic weather application built with React.js that provides real-time weather updates for any location worldwide. Users can search for cities to get current weather conditions, forecasts, and other meteorological data presented in an intuitive and visually appealing interface.",
+    image: weather,
+    tags: ["React", "CSS", "Weather API", "Node.js", "MongoDB"],
+    github: "https://github.com/Thozhamairaj/Weather_Part2",
+    webapp: "https://ourprediction.netlify.app/",
+  },
+  {
+    id: 4,
+    title: "Blood Donor Connect",
+    description:
+      "Blood Donor Connect is a web application designed to facilitate the connection between blood donors and recipients in need. Built using HTML, JavaScript, Node.js, MongoDB, and CSS, the platform allows users to register as donors, search for available blood types, and request donations. The application features a user-friendly interface, secure data management, and real-time notifications to ensure timely communication between donors and recipients.",
+    image: Donor,
+    tags: ["HTML", "JavaScript", "Node.js", "MongoDB", "CSS"],
+    github: "https://github.com/premkumark2005/blood_donor",
+    // webapp: "https://blooddonorconnect.netlify.app/",
+  },
+  {
+    id: 5,
+    title: "Digital Memory Vault",
+    description:
+      "The Digital Memory Vault is a secure web application that allows users to store and manage their personal memories, such as photos, videos, and notes. Built using HTML, JavaScript, Node.js, MongoDB, and CSS, the platform provides a user-friendly interface for uploading and organizing memories. It features robust security measures to ensure that users' data remains private and protected.",
+    image: Memory,
+    tags: ["React", "Python", "Node.js", "FastAPI", "PostgreSQL", "CSS"],
+    github: "https://github.com/Pramodk2006/notee",
+    // webapp: "https://digitalmemoryvault.netlify.app/",
+  },
+  {
+    id: 6,
+    title: "AI-Driven Train Induction Planning & Scheduling for Kochi Metro Rail Limited (KMRL)",
+    description:
+      "An AI-powered system designed to optimize train induction planning and scheduling for Kochi Metro Rail Limited (KMRL). The system utilizes machine learning algorithms to analyze passenger flow, peak hours, and operational constraints to create efficient train schedules. This project aims to enhance the overall efficiency of metro operations, reduce wait times, and improve passenger satisfaction through intelligent scheduling solutions.",
+    image: KMRL,
+    tags: ["Python", "Machine Learning", "Data Analysis", "AI"],
+    github: "https://github.com/Pramodk2006/KMRL",
+    // webapp: "https://kmrl-ai-scheduler.netlify.app/",
+  }
+];
+
+export const certificates = [
+  {
+    id: 0,
+    title: "MERN Stack Development",
+    image: MERN, // add path if you have an image, e.g. import cert1 from './assets/certs/cert1.png'
+  },
+  {
+    id: 1,
+    title: "Oracle Apex Cloud Developer",
+    image: Apex, // add path if you have an image, e.g. import cert2 from './assets/certs/cert2.png'
+  },
+  {
+    id: 2,
+    title: "Azure AI Engineer Associate",
+    image: Azure, // add path if you have an image, e.g. import cert3 from './assets/certs/cert3.png'
+  }, {
+    id: 3,
+    title: "Demistifying Network (DMN)",
+    image: Network, // add path if you have an image, e.g. import cert4 from './assets/certs/cert4.png'
+  }, {
+    id: 4,
+    title: "AI Foundations Associate",
+    image: Oracle,
+    // add path if you have an image, e.g. import cert5 from './assets/certs/cert5.png'
+  }, {
+    id: 5,
+    title: "Responsible & Safe AI Systems",
+    image: Responsive,
+    // add path if you have an image, e.g. import cert6 from './assets/certs/cert6.png'
+  }, {
+    id: 6,
+    title: "Mobile Application Development",
+    image: Mobile, // add path if you have an image, e.g. import cert7 from './assets/certs/cert7.png'
+  },
+  {
+    id: 7,
+    title: "Java SE17 Developer",
+    image: Java, // add path if you have an image, e.g. import cert1 from './assets/certs/cert1.png'
+  }
+];

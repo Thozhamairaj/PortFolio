@@ -144,7 +144,7 @@ const About = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start items-center mt-5">
             {/* Resume Button */}
             <a
-              href="https://drive.google.com/uc?export=download&id=1bram5c1YS3EZrwqOvCsauV7akGQ31ciN"
+              href="https://drive.google.com/file/d/1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a/view?usp=drive_link"
               download="Thozhamairaj_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
