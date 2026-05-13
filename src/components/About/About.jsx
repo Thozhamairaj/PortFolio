@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import ReactTypingEffect from 'react-typing-effect';
 import Tilt from 'react-parallax-tilt';
 import myPhoto from "./myPhoto.jpg";
+import resumePdf from "./Resume_FullStackDeveloper.pdf";
 import { AiOutlineLike, AiOutlineDislike, AiFillLike, AiFillDislike } from 'react-icons/ai';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -102,24 +103,12 @@ const About = () => {
 
   const downloadResume = async (e) => {
     e.preventDefault();
-    const fileId = '1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a';
-    const directUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
-    try {
-      const res = await fetch(directUrl);
-      if (!res.ok) throw new Error('Network response was not ok');
-      const blob = await res.blob();
-      const blobUrl = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = blobUrl;
-      a.download = 'Thozhamairaj_Resume.pdf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(blobUrl);
-    } catch (err) {
-      // fallback: open the Drive view link in a new tab
-      window.open('https://drive.google.com/file/d/1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a/view?usp=drive_link', '_blank');
-    }
+    const a = document.createElement('a');
+    a.href = resumePdf;
+    a.download = 'Thozhamairaj_Resume.pdf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   };
 
   return (
