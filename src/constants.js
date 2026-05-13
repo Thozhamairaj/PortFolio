@@ -203,7 +203,7 @@ export const projects = [
   image: Ecommerce,
   tags: ["React", "CSS", "Node.js", "Express.js", "PostgreSQL"],
   github: "https://github.com/Thozhamairaj/Electrical_shop",
-  // webapp: "https://yourprojectlink.com/",
+  webapp: "https://electrical-shop-three.vercel.app/",
 },{
     id: 1,
     title: " Recommends Personalized College Options for Counselling Student",
