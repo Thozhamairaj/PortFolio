@@ -100,6 +100,28 @@ const About = () => {
     }
   };
 
+  const downloadResume = async (e) => {
+    e.preventDefault();
+    const fileId = '1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a';
+    const directUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+    try {
+      const res = await fetch(directUrl);
+      if (!res.ok) throw new Error('Network response was not ok');
+      const blob = await res.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = 'Thozhamairaj_Resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (err) {
+      // fallback: open the Drive view link in a new tab
+      window.open('https://drive.google.com/file/d/1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a/view?usp=drive_link', '_blank');
+    }
+  };
+
   return (
     <section
       id="about"
@@ -143,11 +165,8 @@ const About = () => {
           {/* Buttons Container */}
           <div className="flex flex-wrap gap-4 justify-center md:justify-start items-center mt-5">
             {/* Resume Button */}
-            <a
-              href="https://drive.google.com/file/d/1izbYtyvHjW7iGwNLeAnR_LfOXIv4oZ2a/view?usp=drive_link"
-              download="Thozhamairaj_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={downloadResume}
               className="inline-block text-white py-3 px-8 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105"
               style={{
                 background: 'linear-gradient(90deg, #8245ec, #a855f7)',
@@ -155,6 +174,18 @@ const About = () => {
               }}
             >
               DOWNLOAD RESUME
+            </button>
+
+            <a
+              href="https://electrical-shop-three.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-white py-3 px-6 rounded-full text-lg font-bold transition duration-300 transform hover:scale-105 border border-gray-600"
+              style={{
+                background: 'transparent',
+              }}
+            >
+              VIEW WEBAPP
             </a>
 
             {/* Like Button */}
