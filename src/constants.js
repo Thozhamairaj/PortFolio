@@ -53,6 +53,7 @@ import Network from './assets/certificate/demi.png';
 import Azure from './assets/certificate/azure.jpg';
 import Apex from './assets/certificate/apex.jpg';
 import Java from './assets/certificate/SE17.png';
+import Affective from './assets/certificate/Affective.png';
 
 export const SkillsInfo = [
   {
@@ -304,5 +305,10 @@ export const certificates = [
     id: 7,
     title: "Java SE17 Developer",
     image: Java, // add path if you have an image, e.g. import cert1 from './assets/certs/cert1.png'
+  },
+  {
+    id: 8,
+    title: "Affective Computing",
+    image: Affective, // add path if you have an image, e.g. import cert2 from './assets/certs/cert2.png'
   }
 ];
